@@ -1,100 +1,92 @@
-﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="FormUsuario.aspx.vb" Inherits="Biblioteca_P.FormUsuario" %>
+﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="FormUsuario.aspx.vb" Inherits="Biblioteca_Proyecto.FormUsuario" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <asp:HiddenField ID="editando" runat="server"/> 
-
-    <div class="container mt-4 mb-5">
-        <div class="card shadow-lg border-0 rounded-4">
-            <div class="card-header bg-primary text-white text-center rounded-top-4">
-                <h3 class="mb-0">Gestión de Usuarios</h3>
-            </div>
-
-            <div class="card-body p-4">   <!-- Campos del formulario -->
-                <div class="row g-3">
-                   
-                    <h2 class="mb-3">Registro de Usuarios</h2>
-
-                    <div class="col-md-4">
-                        <asp:TextBox ID="txtNombre" CssClass="form-control" placeholder="Nombre" runat="server"></asp:TextBox>
-                    </div>
-                    <div class="col-md-4">
-                        <asp:TextBox ID="txtApellido1" CssClass="form-control" placeholder="Primer Apellido" runat="server"></asp:TextBox>
-                    </div>
-                    <div class="col-md-4">
-                        <asp:TextBox ID="txtApellido2" CssClass="form-control" placeholder="Segundo Apellido" runat="server"></asp:TextBox>
-                    </div>
-
-                    <div class="col-md-4">
-                        <asp:TextBox ID="txtEmail" CssClass="form-control" placeholder="Email" runat="server"></asp:TextBox>
-                    </div>   
-                    <div class="col-md-4">
-                        <asp:TextBox ID="txtFechaRegistro" CssClass="form-control" TextMode="Date" placeholder="Fecha de Registro" runat="server"></asp:TextBox>
-                    </div>
-                    <div class="col-md-4">
-                        <asp:TextBox ID="txtTelefono" CssClass="form-control" placeholder="Teléfono" runat="server"></asp:TextBox>
-                    </div>
-                </div>
-
-                 <asp:DropDownList ID="DRol" CssClass="form-control mb-3" runat="server">
-                   <asp:ListItem Text="Seleccione un rol..." Value=""></asp:ListItem>
-                   <asp:ListItem Text="Lector" Value="Lector"></asp:ListItem>
-                   <asp:ListItem Text="Bibliotecario" Value="Bibliotecario"></asp:ListItem>
-                 </asp:DropDownList>
-
-
-                            
-                <div class="mt-4 d-flex flex-wrap gap-2 justify-content-center">
-                    
-                    <asp:Button ID="btn_registrar" runat="server" CssClass="btn btn-primary btn-hover-mover" Text="Registrar" OnClick="btn_registrar_Click" />
-                
-                </div>                                  
-                </div>
-
-                <div class="text-center mt-3">
-                    <asp:Label ID="lblMensaje" runat="server" CssClass="fw-bold text-primary"></asp:Label>
-                </div>
-            </div>
-        </div>
-
-        <div class="card shadow-lg border-0 rounded-4 mt-4">
-            <div class="card-header bg-secondary text-white text-center rounded-top-4">
-                <h4 class="mb-0">Listado de Personas</h4>
-            </div>
-            <div class="card-body">
-               <asp:GridView 
-                 ID="gvUsuario" 
-                 runat="server" 
-                 AutoGenerateColumns="False"
-                 DataKeyNames="IdUsuario"
-                 CssClass="table table-striped table-hover text-center align-middle"
-                 OnRowDeleting="gvUsuario_RowDeleting"
-                 OnRowEditing="gvUsuario_RowEditing"
-                 OnRowUpdating="gvUsuario_RowUpdating"
-                 OnRowCancelingEdit="gvUsuario_RowCancelingEdit"
-                 OnSelectedIndexChanged="gvUsuario_SelectedIndexChanged">
-
-    <Columns>
-              
-        <asp:CommandField ShowSelectButton="True" ControlStyle-CssClass="btn btn-success" />
-        <asp:CommandField ShowEditButton="True" ShowDeleteButton="True" ControlStyle-CssClass="btn btn-primary" />
-
-        
-        <asp:BoundField DataField="IdUsuario" HeaderText="ID" Visible="False" ReadOnly="True" />
-        <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
-        <asp:BoundField DataField="Apellido1" HeaderText="Apellido1" SortExpression="Apellido1" />
-        <asp:BoundField DataField="Apellido2" HeaderText="Apellido2" SortExpression="Apellido2" />
-        <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
-        <asp:BoundField DataField="Telefono" HeaderText="Teléfono" SortExpression="Telefono"/>
-        <asp:BoundField DataField="FechaRegistro" HeaderText="Fecha Registro" SortExpression="FechaRegistro"/>
-        <asp:BoundField DataField="Rol" HeaderText="Rol" SortExpression="Rol" />
-
-    </Columns>
-
-    <HeaderStyle CssClass="table-dark text-white" />
-    <RowStyle CssClass="table-light" />
-
-</asp:GridView>
-                
-            </div>
-        </div>
    
+    <style>
+    .card-form {
+        background: #e9f7ef;
+        padding: 25px;
+        border-radius: 12px;
+        border: 1px solid #b2dfdb;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    h2 {
+        color: #1b5e20;
+        font-weight: bold;
+    }
+    .btn-verde {
+        background-color: #2e7d32;
+        color: white;
+        border-radius: 8px;
+        padding: 8px 16px;
+        border: none;
+    }
+    .btn-verde:hover {
+        background-color: #1b5e20;
+    }
+</style>
+
+<div class="container mt-4">
+    <h2 class="text-center">Registrar Nuevo Lector</h2>
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card-form">
+
+                <asp:Label ID="lblMensaje" runat="server" ForeColor="Red"></asp:Label>
+
+                <div class="form-group mt-2">
+                    <label>Nombre</label>
+                    <asp:TextBox ID="txtNombre" CssClass="form-control" runat="server"></asp:TextBox>
+                </div>
+
+                <div class="form-group mt-3">
+                    <label>Apellido</label>
+                    <asp:TextBox ID="txtApellido" CssClass="form-control" runat="server"></asp:TextBox>
+                </div>
+
+                <div class="form-group mt-3">
+                    <label>Nacionalidad</label>
+                    <asp:TextBox ID="txtNacionalidad" CssClass="form-control" runat="server"></asp:TextBox>
+                </div>
+
+                <div class="form-group mt-3">
+                    <label>Fecha de Nacimiento</label>
+                    <asp:TextBox ID="txtFechaNacimiento" TextMode="Date" CssClass="form-control" runat="server"></asp:TextBox>
+                </div>
+
+                <div class="form-group mt-3">
+                    <label>Teléfono</label>
+                    <asp:TextBox ID="txtTelefono" CssClass="form-control" runat="server"></asp:TextBox>
+                </div>
+
+                <div class="form-group mt-3">
+                    <label>Correo</label>
+                    <asp:TextBox ID="txtCorreo" CssClass="form-control" runat="server"></asp:TextBox>
+                </div>
+
+                <div class="text-center mt-4">
+                    <asp:Button ID="btnGuardar" runat="server" Text="Guardar Lector" CssClass="btn-verde" OnClick="btnGuardar_Click" />
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <hr />
+
+    <h3 class="text-center mt-4">Lectores Registrados</h3>
+
+    <asp:GridView ID="gvLectores" runat="server" CssClass="table table-bordered table-striped mt-3" AutoGenerateColumns="False">
+        <Columns>
+            <asp:BoundField DataField="IdLector" HeaderText="ID" />
+            <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
+            <asp:BoundField DataField="Apellido" HeaderText="Apellido" />
+            <asp:BoundField DataField="Nacionalidad" HeaderText="Nacionalidad" />
+            <asp:BoundField DataField="FechaNacimiento" HeaderText="Nacimiento" DataFormatString="{0:yyyy-MM-dd}" />
+            <asp:BoundField DataField="Telefono" HeaderText="Teléfono" />
+            <asp:BoundField DataField="Correo" HeaderText="Correo" />
+        </Columns>
+    </asp:GridView>
+
+</div>   
 </asp:Content>

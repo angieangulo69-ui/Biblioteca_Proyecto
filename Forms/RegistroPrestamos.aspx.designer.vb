@@ -11,70 +11,43 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class FormUsuario
+Partial Public Class RegistroPrestamos
 
     '''<summary>
-    '''Control lblMensaje.
+    '''Control ddlLibros.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents lblMensaje As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents ddlLibros As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
-    '''Control txtNombre.
+    '''Control ddlUsuarios.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents txtNombre As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents ddlUsuarios As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
-    '''Control txtApellido.
+    '''Control txtFechaPrestamo.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents txtApellido As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txtFechaPrestamo As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''Control txtNacionalidad.
+    '''Control txtFecha.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents txtNacionalidad As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''Control txtFechaNacimiento.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents txtFechaNacimiento As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''Control txtTelefono.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents txtTelefono As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''Control txtCorreo.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents txtCorreo As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txtFecha As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''Control btnGuardar.
@@ -86,11 +59,20 @@ Partial Public Class FormUsuario
     Protected WithEvents btnGuardar As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
-    '''Control gvLectores.
+    '''Control lblMensaje.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents gvLectores As Global.System.Web.UI.WebControls.GridView
+    Protected WithEvents lblMensaje As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Control gvPrestamos.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents gvPrestamos As Global.System.Web.UI.WebControls.GridView
 End Class
